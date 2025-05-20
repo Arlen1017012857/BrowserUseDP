@@ -241,35 +241,6 @@ class AsyncPlanOperation(AsyncNode):
                     prompt += f"这是第{retry_count}次尝试解决此问题。\n"
             else:
                 prompt += "操作结果：" + str(op_result) + "\n"
-                
-        # 添加操作历史摘要而不是完整历史记录
-        # if 'operation_history_summary' in safe:
-        #     summary = safe['operation_history_summary']
-        #     prompt += f"操作历史摘要:\n"
-            # prompt += f"- 总操作数: {summary['total_operations']}\n"
-            # prompt += f"- 成功操作: {summary['successful_operations']}\n"
-            # prompt += f"- 失败操作: {summary['failed_operations']}\n"
-            
-            # 添加操作类型统计
-            # if summary['operation_types']:
-            #     prompt += "- 操作类型统计:\n"
-            #     for op_type, count in summary['operation_types'].items():
-            #         prompt += f"  - {op_type}: {count}\n"
-            
-            # 添加最近的操作
-            # if summary['recent_operations']:
-            #     prompt += "- 最近的操作:\n"
-            #     for op in summary['recent_operations']:
-            #         if 'action' in op:
-            #             prompt += f"  - {op['action']}: {op['params']}\n"
-            #         else:
-            #             prompt += f"  - {op['description']}\n"
-            
-            # # 添加最近的错误
-            # if summary['recent_errors']:
-            #     prompt += "- 最近的错误:\n"
-            #     for err in summary['recent_errors']:
-            #         prompt += f"  - {err['operation']}: {err['error_type']} - {err['message']}\n"
             
         # 添加浏览器环境信息
         # TODO: 细化可交互控件信息，如可点击、普通输入框、文件上传框
@@ -287,28 +258,6 @@ available_actions:
     - go_back()
     - close_tab(title: Optional[str]=None, url: Optional[str]=None)
     - switch_tab(title: Optional[str]=None, url: Optional[str]=None)
-
-B站上传视频SOP: input_text("//input[@type='file']", path to vedio)
-B站上传封面SOP: 
-1. 点击更改封面
-action: click_element
-params:
-    xpath: //span[text()='更改封面']
-
-1. 点击上传封面
-action: click_element
-params:
-    xpath: //div[text()='上传封面']
-2. 点击并上传封面图片
-action: click_to_upload
-params:
-  xpath: //div[text()="拖拽图片到此或点击上传"]
-  file_paths: path to img
-3. 点击完成
-action: click_element
-params:
-    xpath: //span[text()=" 完成 "]
-
 
 请根据上述信息生成下一步的操作计划，并直接输出符合以下 YAML 格式的计划：
 ```yaml
@@ -822,10 +771,7 @@ async def main():
         return
 
     shared = {
-        "task": """去B站上传一个视频，\
-        视频文件路径为 C:/Users/10170/Downloads/text3point.mp4 
-        封面图片路径为 "C:/Users/10170/Pictures/test.jpg"
-        更改完成后保存此视频草稿
+        "task": """自定义任务
         """,
         "operation_history": []
     }
