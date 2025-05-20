@@ -1,0 +1,6 @@
+drissionpage==4.1.0.18
+pocketflow==0.0.2
+python-dotenv==1.1.0
+loguru==0.7.3
+openai==1.79.0
+pyyaml==6.0.2

@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+.venv/
+
+# Logs
+*.log
+
+# Images
+page_diff_imgs/
+
+# Environment config
+.env
