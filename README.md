@@ -63,3 +63,9 @@ This project uses environment variables for sensitive configuration (API keys, m
 2. Edit `.env` and fill in the required values for your environment.
 
 **Note:** The `.env` file is listed in `.gitignore` to protect sensitive data. Never commit your real `.env` file to the repository.
+
+## Future Plans
+
+1. Adapt visual models
+2. Solidify and reuse workflows
+3. Self-healing for workflow exceptions
