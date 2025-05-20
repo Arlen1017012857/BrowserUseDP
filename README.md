@@ -17,7 +17,7 @@ This project provides tools for browser automation, DOM manipulation, and web in
 
 1. Clone the repository:
 ```
-git clone <repository-url>
+git clone git@github.com:Arlen1017012857/BrowserUseDP.git
 cd BrowserUseDP
 ```
 
